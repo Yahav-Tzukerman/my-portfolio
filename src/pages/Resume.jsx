@@ -176,7 +176,7 @@ export default function Resume() {
             {t(resumeData.summaryKey)}
           </Typography>
           <Stack
-            direction="row"
+            direction={{ xs: "column", sm: "row" }}
             spacing={2}
             gap={1}
             justifyContent="center"

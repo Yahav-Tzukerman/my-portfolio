@@ -48,7 +48,6 @@ export default function Home() {
         transition={{ duration: 3 * 0.13, type: "spring" }}
         whileHover={{
           scale: 1.025,
-          boxShadow: "0 8px 32px 0 rgba(100,120,255,0.10)",
           transition: { duration: 0.18 },
         }}
         style={{ width: "100%" }}
