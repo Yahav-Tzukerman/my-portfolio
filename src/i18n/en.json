@@ -1,0 +1,161 @@
+{
+    "app": {
+        "title": "Yahav Tzukerman - Portfolio",
+        "description": "A showcase of my projects and skills"
+    },
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "resume": "Resume",
+        "contact": "Contact"
+    },
+    "pageNotFound": {
+        "title": "Page Not Found",
+        "description": "The page you are looking for does not exist."
+    },
+    "unauthorized": {
+        "title": "Unauthorized",
+        "description": "You do not have permission to access this page."
+    },
+    "home": {
+        "title": "Yahav Tzukerman",
+        "role": "Full Stack Developer",
+        "avatarAlt": "Yahav Tzukerman's Avatar",
+        "quote": "Building software. Creating value. Always learning.",
+        "intro": "Expert in React, Node.js, .NET, MongoDB, and more. Passionate about building high-quality systems and learning new technologies. Here you can find my projects and experience.",
+        "cta": {
+            "projects": "View Projects",
+            "cv": "Resume",
+            "contact": "Contact"
+        }
+    },
+    "projects": {
+        "title": "Projects",
+        "description": "A collection of my projects showcasing my skills and technologies I work with.",
+        "demo": "Live Demo",
+        "github": "GitHub Repository",
+        "Movies": {
+            "title": "Movies & Subscriptions Management",
+            "description": "A full-stack application for managing movies and subscriptions, built with React, Node.js, and MongoDB.",
+            "features": {
+                "0": "User and role management with JWT authentication",
+                "1": "Modern dashboard for admins",
+                "2": "CI/CD, responsive UI, and more"
+            }
+        },
+        "FactoryManager": {
+            "title": "Factory Manager",
+            "description": "A web application for managing factory resources and operations.",
+            "features": {
+                "0": "User authentication and authorization",
+                "1": "Role-based access control",
+                "2": "CRUD operations for managing factory resources"
+            }
+        },
+        "NextGenerationECommerce": {
+            "title": "Next Generation E-Commerce",
+            "description": "A modern e-commerce application built with React and Firebase.",
+            "features": {
+                "0": "Real-time database with Firebase",
+                "1": "Cart and checkout",
+                "2": "Responsive design with Bootstrap"
+            }
+        },
+        "memos": {
+            "title": "Memos",
+            "description": "A note-taking application for creating and managing memos.",
+            "features": {
+                "0": "Create, edit, and delete memos",
+                "1": "Search and filter memos",
+                "2": "Responsive design"
+            }
+        }
+    },
+    "resume": {
+        "title": "Resume",
+        "download": "Download PDF",
+        "summary": "Full Stack Developer with hands-on experience in Angular, .NET, Node.js, React, Java, and Oracle DB. Specializes in scalable web apps and robust backend systems, leading E2E projects from requirements to production. Strong business acumen, excellent communication skills, and proven record of technical ownership in Agile environments.",
+        "skillsTitle": "Technical Skills",
+        "skillsSoftTitle": "Soft Skills",
+        "skills": "Skills",
+        "experienceTitle": "Professional Experience",
+        "educationTitle": "Education",
+        "militaryTitle": "Military Service",
+        "languagesTitle": "Languages",
+        "projectsTitle": "Personal Projects",
+        "languages": {
+            "hebrew": "Hebrew",
+            "english": "English",
+            "native": "Native",
+            "fluent": "Fluent"
+        },
+        "soft": {
+            "rapidLearning": "Rapid Technology Adoption",
+            "multitasking": "Efficient Multitasking & Prioritization",
+            "leadership": "Team Leadership & Project Ownership",
+            "adaptability": "Adaptability in Dynamic Environments",
+            "communication": "Excellent Communication Skills"
+        },
+        "experience": {
+            "onecity": {
+                "role": "Full Stack Developer",
+                "0": "Develop complex web applications for municipalities in AngularJS, Angular, .NET Entity Framework, and Oracle DB.",
+                "1": "Design scalable backend solutions with modern design patterns and both DB-first and code-first architectures.",
+                "2": "Lead end-to-end development cycles from requirements to deployment and ongoing maintenance (CI/CD, Azure DevOps, IIS).",
+                "3": "Maintain and troubleshoot live production systems (server admin, upgrades, incident resolution).",
+                "4": "Work in Agile/Scrum: sprint planning, code reviews, delivery processes.",
+                "5": "Collaborate cross-teams to deliver business-critical features and optimal UX.",
+                "6": "Direct server management, monitoring, and system optimizations."
+            },
+            "rafael": {
+                "role": "Software Developer & System Admin Lead",
+                "0": "Led E2E development for library management, server health checks, and system automation (Java, Spring, React, Python, PowerShell).",
+                "1": "Optimize UX using Virtual Desk Infrastructure (VDI).",
+                "2": "Manage and optimize production environments (CAD).",
+                "3": "Plan, set KPIs, monitor planning vs. execution (Jira).",
+                "4": "Scrum Master: lead Agile team, manage tasks, mentor and guide.",
+                "5": "System administrator for production environments."
+            },
+            "sigma": {
+                "role": "Technological Project Manager",
+                "0": "Manage customer relations, support sales, implement solutions & deliver support.",
+                "1": "Developed storage/order management app; reduced support calls by 50%.",
+                "2": "Led training, bug management, collaborated with sales/marketing."
+            },
+            "rafael2": {
+                "role": "Development Integrator",
+                "0": "Support development, run tests, manage bugs, reduce production faults by 45%."
+            }
+        },
+        "projects": {
+            "0": {
+                "title": "Full Stack & Java Projects",
+                "desc": "Node.js, React: Full-stack production web apps (JavaScript/TypeScript, MongoDB, Express, CI/CD). Most projects are live. Also developed Java Spring Boot & Spring Security projects. See GitHub for demos and code."
+            }
+        },
+        "edu": {
+            "bsc": "B.Sc. Computer Science",
+            "fullstack": "Full-Stack Java Development",
+            "preacad": "Pre-Academic Studies",
+            "engineer": "Electronics Practical Engineer"
+        },
+        "military": {
+            "role": "Electronics Technician, Israeli Air Force",
+            "desc": "Worked as electronics technician, supporting advanced aviation systems and maintaining operational reliability."
+        }
+    },
+    "contact": {
+        "title": "Contact Me",
+        "subtitle": "Want to work together or have a question? Fill in the form or reach me directly via email, LinkedIn, or phone.",
+        "name": "Your Name",
+        "email": "Your Email",
+        "message": "Your Message",
+        "send": "Send Message",
+        "orReach": "Or reach me directly:",
+        "thankYou": "Thank you for reaching out! Your message has been sent."
+    },
+    "footer": {
+        "copyright": "All rights reserved."
+    }
+}
