@@ -43,8 +43,14 @@ export default function Home() {
     >
       <motion.div
         initial={{ opacity: 0, y: 35 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, type: "spring" }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 3 * 0.13, type: "spring" }}
+        whileHover={{
+          scale: 1.025,
+          boxShadow: "0 8px 32px 0 rgba(100,120,255,0.10)",
+          transition: { duration: 0.18 },
+        }}
         style={{ width: "100%" }}
       >
         <Paper
@@ -62,6 +68,13 @@ export default function Home() {
             boxShadow: "0 4px 36px 0 rgba(0,0,0,0.20)",
             backdropFilter: "blur(8px)",
             border: "1.5px solid rgba(255,255,255,0.06)",
+            borderLeft: `5px solid ${theme.colors.innerCardBackground}`,
+            transition: "border 0.2s, box-shadow 0.2s, filter 0.2s",
+            "&:hover": {
+              filter: "brightness(1.03)",
+              borderLeft: `8px solid ${theme.colors.innerCardBackground}`,
+              boxShadow: "0 8px 36px 0 rgba(50,100,255,0.13)",
+            },
           }}
         >
           <Avatar
@@ -141,27 +154,26 @@ export default function Home() {
               {t("home.quote")}
             </Typography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <AppButton
-                label={t("home.cta.projects")}
-                variant="primary"
-                size="lg"
-                onClick={() => navigate("/projects")}
-                aria-label="View Projects"
-              />
-              <AppButton
-                label={t("home.cta.cv")}
-                variant="secondary"
-                size="lg"
-                onClick={() => navigate("/resume")}
-                aria-label="View Resume"
-              />
-              <AppButton
-                label={t("home.cta.contact")}
-                variant="outlined"
-                size="lg"
-                onClick={() => navigate("/contact")}
-                aria-label="Contact"
-              />
+              <Box sx={{ gap: 1, display: "flex", flexDirection: "row" }}>
+                <AppButton
+                  label={t("home.cta.projects")}
+                  variant="primary"
+                  onClick={() => navigate("/projects")}
+                  size={"sm"}
+                />
+                <AppButton
+                  label={t("home.cta.cv")}
+                  variant="secondary"
+                  size={"sm"}
+                  onClick={() => navigate("/resume")}
+                />
+                <AppButton
+                  label={t("home.cta.contact")}
+                  variant="muted"
+                  size={"sm"}
+                  onClick={() => navigate("/contact")}
+                />
+              </Box>
             </Stack>
           </Box>
         </Paper>

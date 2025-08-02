@@ -134,21 +134,23 @@ export default function ProjectCard({ project, theme, index }) {
             }}
           >
             {project.tags.map((tag) => (
-              <Tooltip title={tag} key={tag}>
-                <Chip
-                  icon={techIcons[tag] || null}
-                  label={tag}
-                  sx={{
-                    bgcolor: theme.colors.innerCardBackground,
-                    color: theme.colors.textLight,
-                    fontWeight: 500,
-                    mr: 1,
-                    "&:hover": {
-                      bgcolor: theme.colors.hover,
-                    },
-                  }}
-                />
-              </Tooltip>
+              <Box dir="ltr" key={tag}>
+                <Tooltip title={tag} key={tag}>
+                  <Chip
+                    icon={techIcons[tag] || null}
+                    label={tag}
+                    sx={{
+                      bgcolor: theme.colors.innerCardBackground,
+                      color: theme.colors.textLight,
+                      fontWeight: 500,
+                      mr: 1,
+                      "&:hover": {
+                        bgcolor: theme.colors.hover,
+                      },
+                    }}
+                  />
+                </Tooltip>
+              </Box>
             ))}
           </Stack>
           <Stack direction="row" spacing={2} sx={{ mt: 3 }}>

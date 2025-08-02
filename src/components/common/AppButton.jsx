@@ -10,6 +10,7 @@ const AppButton = ({
   variant = "primary",
   size,
   fullWidth = false,
+  download = false,
 }) => {
   const app = useSelector((state) => state.app);
   const theme = app.darkMode ? appTheme.dark : appTheme.light;
@@ -27,6 +28,8 @@ const AppButton = ({
       ? theme.colors.success
       : variant === "secondary"
       ? theme.colors.secondary
+      : variant === "outlined"
+      ? "transparent"
       : theme.colors.textMuted;
 
   const hoverColor =
@@ -70,6 +73,7 @@ const AppButton = ({
       }}
       variant="contained"
       fullWidth={fullWidth}
+      download={download}
     >
       {label}
     </Button>
