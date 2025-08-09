@@ -12,6 +12,7 @@ const projects = [
     github: "https://github.com/Yahav-Tzukerman/Movies-FullStack",
     demo: "https://movies-full-stack.vercel.app/",
     image: "/screenshots/movies.png",
+    testAccounts: [{ role: "Admin", username: "admin", password: "admin123" }],
   },
   {
     id: 2,
@@ -26,6 +27,9 @@ const projects = [
     github: "https://github.com/Yahav-Tzukerman/FactoryManager",
     demo: "https://factorymanager-6t60.onrender.com/login.html",
     image: "/screenshots/factoryManager.png",
+    testAccounts: [
+      { role: "User", username: "Bret", password: "Sincere@april.biz" },
+    ],
   },
   {
     id: 3,
@@ -40,6 +44,10 @@ const projects = [
     github: "https://github.com/Yahav-Tzukerman/React---Final-Project",
     demo: "https://react-final-project-kappa.vercel.app/",
     image: "/screenshots/nextGenECommerce.png",
+    testAccounts: [
+      { role: "Admin", username: "Admin", password: "Admin123!" },
+      { role: "Customer", username: "Customer", password: "Customer123!" },
+    ],
   },
   {
     id: 4,

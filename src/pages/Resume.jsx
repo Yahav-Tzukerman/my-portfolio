@@ -8,110 +8,98 @@ import {
   Button,
   Divider,
 } from "@mui/material";
+import AppButton from "../components/common/AppButton";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import appTheme from "../styles/theme";
 import resumeData from "../data/resumeData";
-import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from "react-icons/fa";
-import AppButton from "../components/common/AppButton";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaDownload,
+  FaEnvelope,
+  FaWindows,
+  FaJava,
+} from "react-icons/fa";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiJavascript,
+  SiDotnet,
+  SiAngular,
+  SiTypescript,
+  SiPython,
+  SiDocker,
+  SiC,
+  SiHtml5,
+  SiCss3,
+  SiSpring,
+  SiGit,
+  SiLinux,
+  SiSqlite,
+  SiGitlab,
+  SiGithub,
+  SiPostgresql,
+  SiMysql,
+  SiCoffeescript,
+  SiOracle,
+  SiPowers,
+  SiNestjs,
+  SiHibernate,
+  SiSharp,
+  SiGitforwindows,
+} from "react-icons/si";
+import { TbBrandPowershell } from "react-icons/tb";
+import { VscAzure } from "react-icons/vsc";
 
 const techIcons = {
-  React: (
-    <span style={{ color: "#61dafb", fontWeight: "bold", fontSize: 18 }}>
-      ⚛️
-    </span>
+  React: <SiReact size={22} color={appTheme.dark.colors.react} />,
+  "Node.js": <SiNodedotjs size={22} color={appTheme.dark.colors.node} />,
+  MongoDB: <SiMongodb size={22} color={appTheme.dark.colors.mongo} />,
+  Java: <FaJava size={22} color={appTheme.dark.colors.java} />,
+  ".NET Entity Framework": (
+    <SiDotnet size={22} color={appTheme.dark.colors.dotnet} />
   ),
-  "Node.js": (
-    <span style={{ color: "#3c873a", fontWeight: "bold", fontSize: 18 }}>
-      🟩
-    </span>
-  ),
-  MongoDB: (
-    <span style={{ color: "#47a248", fontWeight: "bold", fontSize: 18 }}>
-      🍃
-    </span>
-  ),
-  Java: (
-    <span style={{ color: "#f89820", fontWeight: "bold", fontSize: 18 }}>
-      ☕
-    </span>
-  ),
-  ".NET": (
-    <span style={{ color: "#5c2d91", fontWeight: "bold", fontSize: 18 }}>
-      🟪
-    </span>
-  ),
-  SQL: (
-    <span style={{ color: "#336791", fontWeight: "bold", fontSize: 18 }}>
-      🗄️
-    </span>
-  ),
-  Angular: (
-    <span style={{ color: "#dd0031", fontWeight: "bold", fontSize: 18 }}>
-      🅰️
-    </span>
-  ),
+  SQL: <SiSqlite size={22} color={appTheme.dark.colors.sql} />,
+  Angular: <SiAngular size={22} color={appTheme.dark.colors.angular} />,
+  AngularJS: <SiAngular size={22} color={appTheme.dark.colors.angular} />,
   JavaScript: (
-    <span style={{ color: "#f7df1e", fontWeight: "bold", fontSize: 18 }}>
-      🟨
-    </span>
+    <SiJavascript size={22} color={appTheme.dark.colors.javascript} />
   ),
   TypeScript: (
-    <span style={{ color: "#3178c6", fontWeight: "bold", fontSize: 18 }}>
-      🟦
-    </span>
+    <SiTypescript size={22} color={appTheme.dark.colors.typescript} />
   ),
-  Python: (
-    <span style={{ color: "#306998", fontWeight: "bold", fontSize: 18 }}>
-      🐍
-    </span>
-  ),
-  Docker: (
-    <span style={{ color: "#2496ed", fontWeight: "bold", fontSize: 18 }}>
-      🐳
-    </span>
-  ),
-  CSharp: (
-    <span style={{ color: "#239120", fontWeight: "bold", fontSize: 18 }}>
-      🟩
-    </span>
-  ),
-  C: (
-    <span style={{ color: "#00599c", fontWeight: "bold", fontSize: 18 }}>
-      🟦
-    </span>
-  ),
-  HTML: (
-    <span style={{ color: "#e34c26", fontWeight: "bold", fontSize: 18 }}>
-      🟧
-    </span>
-  ),
-  CSS: (
-    <span style={{ color: "#1572b6", fontWeight: "bold", fontSize: 18 }}>
-      🟦
-    </span>
-  ),
+  Python: <SiPython size={22} color={appTheme.dark.colors.python} />,
+  Docker: <SiDocker size={22} color={appTheme.dark.colors.docker} />,
+  NestJS: <SiNestjs size={22} color={appTheme.dark.colors.nestjs} />,
+  // CSharp: <SiCsharp size={22} color={appTheme.dark.colors.csharp} />,
+  C: <SiC size={22} color={appTheme.dark.colors.c} />,
+  HTML: <SiHtml5 size={22} color={appTheme.dark.colors.html} />,
+  CSS: <SiCss3 size={22} color={appTheme.dark.colors.css} />,
   PowerShell: (
-    <span style={{ color: "#012456", fontWeight: "bold", fontSize: 18 }}>
-      🟦
-    </span>
+    <TbBrandPowershell size={22} color={appTheme.dark.colors.powershell} />
   ),
-  Spring: (
-    <span style={{ color: "#6db33f", fontWeight: "bold", fontSize: 18 }}>
-      🌱
-    </span>
+  Spring: <SiSpring size={22} color={appTheme.dark.colors.spring} />,
+  Git: <SiGit size={22} color={appTheme.dark.colors.git} />,
+  Linux: <SiLinux size={22} color={appTheme.dark.colors.linux} />,
+  GitLab: <SiGitlab size={22} color={appTheme.dark.colors.gitlab} />,
+  GitHub: <SiGithub size={22} color={appTheme.dark.colors.github} />,
+  PostgreSQL: (
+    <SiPostgresql size={22} color={appTheme.dark.colors.postgresql} />
   ),
-  Git: (
-    <span style={{ color: "#f05032", fontWeight: "bold", fontSize: 18 }}>
-      🐙
-    </span>
+  MySQL: <SiMysql size={22} color={appTheme.dark.colors.mysql} />,
+  Oracle: <SiOracle size={22} color={appTheme.dark.colors.oracle} />,
+  PostgreSQL: (
+    <SiPostgresql size={22} color={appTheme.dark.colors.postgresql} />
   ),
-  Linux: (
-    <span style={{ color: "#fcc624", fontWeight: "bold", fontSize: 18 }}>
-      🐧
-    </span>
+  Hibernate: <SiHibernate size={22} color={appTheme.dark.colors.hibernate} />,
+  "C#": <SiSharp size={22} color={appTheme.dark.colors.csharp} />,
+  "Windows Server": (
+    <FaWindows size={22} color={appTheme.dark.colors.windows} />
   ),
+  "Azure DevOps": <VscAzure size={22} color={appTheme.dark.colors.azure} />,
 };
 
 export default function Resume() {
@@ -308,14 +296,14 @@ export default function Resume() {
                 fontWeight={700}
                 color={theme.colors.primary}
               >
-                {exp.company} – {t(exp.roleKey)}
+                {t(exp.companyKey)} – {t(exp.roleKey)}
               </Typography>
               <Typography
                 variant="subtitle2"
                 color={theme.colors.secondaryText}
                 sx={{ mb: 1 }}
               >
-                {exp.period}
+                {t(exp.periodKey)}
               </Typography>
               <ul
                 style={{
@@ -378,23 +366,37 @@ export default function Resume() {
             {t("resume.skillsTitle")}
           </Typography>
           <Stack direction="row" flexWrap="wrap" mb={2}>
-            {resumeData.skills.map((skill) => (
-              <Box dir="ltr" key={skill}>
-                <Chip
-                  icon={techIcons[skill] || null}
-                  label={skill}
-                  sx={{
-                    m: 0.5,
-                    fontWeight: 600,
-                    fontSize: 15,
-                    bgcolor: theme.colors.innerCardBackground,
-                    color: theme.colors.textLight,
-                    px: 1.2,
-                    py: 0.2,
-                    height: 34,
-                    borderRadius: 2.2,
-                  }}
-                />
+            {Object.entries(resumeData.skills).map(([category, skills]) => (
+              <Box key={category} mb={3}>
+                <Typography
+                  variant="subtitle1"
+                  fontWeight={600}
+                  color={theme.colors.textMuted}
+                  mb={1}
+                >
+                  {t(`resume.skills.${category}`)}{" "}
+                </Typography>
+                <Stack direction="row" flexWrap="wrap">
+                  {skills.map((skill) => (
+                    <Box dir="ltr" key={skill}>
+                      <Chip
+                        icon={techIcons[skill] || null}
+                        label={skill}
+                        sx={{
+                          m: 0.5,
+                          fontWeight: 600,
+                          fontSize: 15,
+                          bgcolor: theme.colors.innerCardBackground,
+                          color: theme.colors.textLight,
+                          px: 1.2,
+                          py: 0.2,
+                          height: 34,
+                          borderRadius: 2.2,
+                        }}
+                      />
+                    </Box>
+                  ))}
+                </Stack>
               </Box>
             ))}
           </Stack>
@@ -472,7 +474,7 @@ export default function Resume() {
                 variant="subtitle2"
                 color={theme.colors.secondaryText}
               >
-                {edu.institution} | {edu.period}
+                {t(edu.institutionKey)} | {t(edu.periodKey)}
               </Typography>
             </Box>
           ))}

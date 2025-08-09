@@ -34,8 +34,7 @@ const LanguageSwitcher = () => {
       <FormControl
         sx={{
           minWidth: 92,
-          pr: "1.2rem",
-          bgcolor: theme.colors.background,
+          bgcolor: theme.colors.cardBackground,
           borderRadius: "6px",
           boxShadow: theme.colors.shadow,
         }}
@@ -58,7 +57,7 @@ const LanguageSwitcher = () => {
           label="Language"
           sx={{
             color: theme.colors.textLight,
-            bgcolor: theme.colors.background,
+            bgcolor: theme.colors.cardBackground,
             "& .MuiSelect-icon": {
               color: theme.colors.textMuted,
             },
@@ -70,8 +69,12 @@ const LanguageSwitcher = () => {
           <MenuItem
             value="en"
             sx={{
+              "& .MuiListItem-root": {
+                bgcolor: theme.colors.cardBackground,
+              },
               color: theme.colors.textLight,
               bgcolor: theme.colors.cardBackground,
+
               "&.Mui-selected": {
                 bgcolor: theme.colors.innerCardBackground,
                 "&:hover": {

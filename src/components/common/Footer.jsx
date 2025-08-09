@@ -68,23 +68,6 @@ export default function Footer() {
             </IconButton>
           </Tooltip>
         </Stack>
-        <Tooltip title={i18n.language === "en" ? "עברית" : "English"}>
-          <IconButton
-            onClick={() =>
-              i18n.changeLanguage(i18n.language === "en" ? "he" : "en")
-            }
-            sx={{
-              color: theme.colors.textMuted,
-              fontSize: 18,
-              border: `1px solid ${theme.colors.inputBorder}`,
-              borderRadius: "50%",
-              ml: 1,
-            }}
-            aria-label="Change Language"
-          >
-            {i18n.language === "en" ? "HE" : "EN"}
-          </IconButton>
-        </Tooltip>
       </Stack>
     </Box>
   );

@@ -35,6 +35,9 @@
         "description": "A collection of my projects showcasing my skills and technologies I work with.",
         "demo": "Live Demo",
         "github": "GitHub Repository",
+        "testAccounts": "Test Accounts",
+        "username": "Username",
+        "password": "Password",
         "Movies": {
             "title": "Movies & Subscriptions Management",
             "description": "A full-stack application for managing movies and subscriptions, built with React, Node.js, and MongoDB.",
@@ -78,7 +81,14 @@
         "summary": "Full Stack Developer with hands-on experience in Angular, .NET, Node.js, React, Java, and Oracle DB. Specializes in scalable web apps and robust backend systems, leading E2E projects from requirements to production. Strong business acumen, excellent communication skills, and proven record of technical ownership in Agile environments.",
         "skillsTitle": "Technical Skills",
         "skillsSoftTitle": "Soft Skills",
-        "skills": "Skills",
+        "skills": {
+            "languages": "Languages",
+            "frameworks": "Frameworks",
+            "databases": "Databases",
+            "tools": "Tools",
+            "devops": "DevOps",
+            "other": "Other Technologies"
+        },
         "experienceTitle": "Professional Experience",
         "educationTitle": "Education",
         "militaryTitle": "Military Service",
@@ -99,7 +109,9 @@
         },
         "experience": {
             "onecity": {
+                "company": "OneCity",
                 "role": "Full Stack Developer",
+                "period": "Nov 2024 – Present | Haifa",
                 "0": "Develop complex web applications for municipalities in AngularJS, Angular, .NET Entity Framework, and Oracle DB.",
                 "1": "Design scalable backend solutions with modern design patterns and both DB-first and code-first architectures.",
                 "2": "Lead end-to-end development cycles from requirements to deployment and ongoing maintenance (CI/CD, Azure DevOps, IIS).",
@@ -109,7 +121,9 @@
                 "6": "Direct server management, monitoring, and system optimizations."
             },
             "rafael": {
+                "company": "Rafael",
                 "role": "Software Developer & System Admin Lead",
+                "period": "Jul 2022 – Nov 2024 | David",
                 "0": "Led E2E development for library management, server health checks, and system automation (Java, Spring, React, Python, PowerShell).",
                 "1": "Optimize UX using Virtual Desk Infrastructure (VDI).",
                 "2": "Manage and optimize production environments (CAD).",
@@ -118,13 +132,17 @@
                 "5": "System administrator for production environments."
             },
             "sigma": {
+                "company": "Sigma Automation",
                 "role": "Technological Project Manager",
+                "period": "Nov 2019 – Mar 2022 | Haifa",
                 "0": "Manage customer relations, support sales, implement solutions & deliver support.",
                 "1": "Developed storage/order management app; reduced support calls by 50%.",
                 "2": "Led training, bug management, collaborated with sales/marketing."
             },
             "rafael2": {
+                "company": "Rafael",
                 "role": "Development Integrator",
+                "period": "May 2016 – May 2018 | Leshem",
                 "0": "Support development, run tests, manage bugs, reduce production faults by 45%."
             }
         },
@@ -135,10 +153,31 @@
             }
         },
         "edu": {
-            "bsc": "B.Sc. Computer Science",
-            "fullstack": "Full-Stack Java Development",
-            "preacad": "Pre-Academic Studies",
-            "engineer": "Electronics Practical Engineer"
+            "bsc": {
+                "degree": "B.Sc. in Computer Science",
+                "institution": "The Open University",
+                "period": "2024 – Present"
+            },
+            "fullstack": {
+                "degree": "Full-Stack Java Development",
+                "institution": "John Bryce",
+                "period": "2021 – 2023"
+            },
+            "preacad": {
+                "degree": "Pre-Academic Studies",
+                "institution": "Technion",
+                "period": "2018 – 2019"
+            },
+            "engineer": {
+                "degree": "Electronics Practical Engineer",
+                "institution": "Ort Braude",
+                "period": "2010 – 2012"
+            },
+            "scrum": {
+                "degree": "Scrum Master Certification",
+                "institution": "AgileSparks",
+                "period": "2024"
+            }
         },
         "military": {
             "role": "Electronics Technician, Israeli Air Force",

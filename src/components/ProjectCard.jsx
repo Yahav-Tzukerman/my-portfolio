@@ -7,29 +7,100 @@ import {
   Box,
   Tooltip,
   CardMedia,
+  Divider,
+  IconButton,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import appTheme from "../styles/theme";
+import { useTranslation } from "react-i18next";
+import AppButton from "./common/AppButton";
+import {  
+  FaExternalLinkAlt,
+  FaGithub,
+  FaWindows,
+  FaJava,
+  FaRegCopy,
+} from "react-icons/fa";
 import {
   SiReact,
   SiNodedotjs,
   SiMongodb,
   SiJavascript,
-  SiRedux,
   SiDotnet,
+  SiAngular,
+  SiTypescript,
+  SiPython,
+  SiDocker,
+  SiC,
+  SiHtml5,
+  SiCss3,
+  SiSpring,
+  SiGit,
+  SiLinux,
+  SiSqlite,
+  SiGitlab,
+  SiGithub,
+  SiPostgresql,
+  SiMysql,
+  SiOracle,
+  SiNestjs,
+  SiHibernate,
+  SiSharp,
 } from "react-icons/si";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import appTheme from "../styles/theme";
-import { useTranslation } from "react-i18next";
-import AppButton from "./common/AppButton";
+import { TbBrandPowershell } from "react-icons/tb";
+import { VscAzure } from "react-icons/vsc";
 
 const techIcons = {
   React: <SiReact size={22} color={appTheme.dark.colors.react} />,
   "Node.js": <SiNodedotjs size={22} color={appTheme.dark.colors.node} />,
   MongoDB: <SiMongodb size={22} color={appTheme.dark.colors.mongo} />,
-  JWT: <SiJavascript size={22} color={appTheme.dark.colors.js} />,
-  Redux: <SiRedux size={22} color={appTheme.dark.colors.redux} />,
-  ".NET": <SiDotnet size={22} color={appTheme.dark.colors.dotnet} />,
+  Java: <FaJava size={22} color={appTheme.dark.colors.java} />,
+  ".NET Entity Framework": (
+    <SiDotnet size={22} color={appTheme.dark.colors.dotnet} />
+  ),
+  SQL: <SiSqlite size={22} color={appTheme.dark.colors.sql} />,
+  Angular: <SiAngular size={22} color={appTheme.dark.colors.angular} />,
+  AngularJS: <SiAngular size={22} color={appTheme.dark.colors.angular} />,
+  JavaScript: (
+    <SiJavascript size={22} color={appTheme.dark.colors.javascript} />
+  ),
+  TypeScript: (
+    <SiTypescript size={22} color={appTheme.dark.colors.typescript} />
+  ),
+  Python: <SiPython size={22} color={appTheme.dark.colors.python} />,
+  Docker: <SiDocker size={22} color={appTheme.dark.colors.docker} />,
+  NestJS: <SiNestjs size={22} color={appTheme.dark.colors.nestjs} />,
+  // CSharp: <SiCsharp size={22} color={appTheme.dark.colors.csharp} />,
+  C: <SiC size={22} color={appTheme.dark.colors.c} />,
+  HTML: <SiHtml5 size={22} color={appTheme.dark.colors.html} />,
+  CSS: <SiCss3 size={22} color={appTheme.dark.colors.css} />,
+  PowerShell: (
+    <TbBrandPowershell size={22} color={appTheme.dark.colors.powershell} />
+  ),
+  Spring: <SiSpring size={22} color={appTheme.dark.colors.spring} />,
+  Git: <SiGit size={22} color={appTheme.dark.colors.git} />,
+  Linux: <SiLinux size={22} color={appTheme.dark.colors.linux} />,
+  GitLab: <SiGitlab size={22} color={appTheme.dark.colors.gitlab} />,
+  GitHub: <SiGithub size={22} color={appTheme.dark.colors.github} />,
+  PostgreSQL: (
+    <SiPostgresql size={22} color={appTheme.dark.colors.postgresql} />
+  ),
+  MySQL: <SiMysql size={22} color={appTheme.dark.colors.mysql} />,
+  Oracle: <SiOracle size={22} color={appTheme.dark.colors.oracle} />,
+  PostgreSQL: (
+    <SiPostgresql size={22} color={appTheme.dark.colors.postgresql} />
+  ),
+  Hibernate: <SiHibernate size={22} color={appTheme.dark.colors.hibernate} />,
+  "C#": <SiSharp size={22} color={appTheme.dark.colors.csharp} />,
+  "Windows Server": (
+    <FaWindows size={22} color={appTheme.dark.colors.windows} />
+  ),
+  "Azure DevOps": <VscAzure size={22} color={appTheme.dark.colors.azure} />,
 };
+
+function handleCopy(text) {
+  navigator.clipboard.writeText(text);
+}
 
 export default function ProjectCard({ project, theme, index }) {
   const { t } = useTranslation();
@@ -167,16 +238,19 @@ export default function ProjectCard({ project, theme, index }) {
                 size={"sm"}
               />
             )}
-            <AppButton
-              label={
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <FaGithub style={{ marginRight: 8 }} /> {t("projects.github")}
-                </Box>
-              }
-              onClick={() => window.open(project.github, "_blank")}
-              variant="secondary"
-              size={"sm"}
-            />
+            <span style={{ margin: "0 8px" }}>
+              <AppButton
+                label={
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <FaGithub style={{ marginRight: 8 }} />{" "}
+                    {t("projects.github")}
+                  </Box>
+                }
+                onClick={() => window.open(project.github, "_blank")}
+                variant="secondary"
+                size={"sm"}
+              />
+            </span>
           </Stack>
           <Stack direction="column" spacing={0.5} sx={{ mt: 2 }}>
             {project.featuresKeys &&
@@ -190,6 +264,95 @@ export default function ProjectCard({ project, theme, index }) {
                 </Typography>
               ))}
           </Stack>
+          {project.testAccounts && project.testAccounts.length > 0 && (
+            <Box
+              sx={{
+                mt: 3,
+                p: 2,
+                bgcolor: theme.colors.innerCardBackground,
+                borderRadius: 2,
+              }}
+            >
+              <Typography
+                variant="subtitle1"
+                fontWeight={700}
+                sx={{ color: theme.colors.textLight, mb: 1 }}
+              >
+                {t("projects.testAccounts")}
+              </Typography>
+              <Divider sx={{ mb: 1 }} />
+              <Stack direction="column" spacing={1}>
+                {project.testAccounts.map((account, idx) => (
+                  <Box
+                    key={idx}
+                    sx={{
+                      bgcolor: theme.colors.innerCardBackground,
+                      p: 1,
+                      borderRadius: 2,
+                      boxShadow: 1,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      mb: 1,
+                      flexWrap: "wrap",
+                      gap: 1,
+                    }}
+                  >
+                    <Typography
+                      variant="body2"
+                      sx={{ fontWeight: 600, color: theme.colors.textLight }}
+                    >
+                      {account.role}
+                    </Typography>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                        color: theme.colors.textLight,
+                      }}
+                    >
+                      <Typography variant="body2">
+                        {t("projects.username")}:
+                        <Box sx={{ direction: "ltr" }}>
+                          <b>{account.username}</b>
+                        </Box>
+                      </Typography>
+                      <IconButton
+                        size="small"
+                        onClick={() => handleCopy(account.username)}
+                        sx={{ color: theme.colors.primary }}
+                      >
+                        <FaRegCopy size={14} />
+                      </IconButton>
+                    </Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                        color: theme.colors.textLight,
+                      }}
+                    >
+                      <Typography variant="body2">
+                        {t("projects.password")}:{" "}
+                        <Box sx={{ direction: "ltr" }}>
+                          <b>{account.password}</b>
+                        </Box>
+                      </Typography>
+                      <IconButton
+                        size="small"
+                        onClick={() => handleCopy(account.password)}
+                        sx={{ color: theme.colors.primary }}
+                      >
+                        <FaRegCopy size={14} />
+                      </IconButton>
+                    </Box>
+                  </Box>
+                ))}
+              </Stack>
+            </Box>
+          )}
         </Box>
       </Paper>
     </motion.div>

@@ -20,16 +20,24 @@ import {
   SiDocker,
   SiJavascript,
   SiRedux,
+  SiAngular,
+  SiTypescript,
+  SiSpring,
+  SiPostgresql,
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { TbBrandCSharp } from "react-icons/tb";
 import appTheme from "../styles/theme";
 import AppButton from "../components/common/AppButton";
 const AVATAR_URL = "/avatar.jpg";
+const SCRUM_BADGE = "PSMI.png";
 
 export default function Home() {
   const app = useSelector((state) => state.app);
   const theme = app.darkMode ? appTheme.dark : appTheme.light;
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const isRtl = app.lang === "he";
 
   return (
     <Box
@@ -77,6 +85,23 @@ export default function Home() {
           }}
         >
           <Avatar
+            src={SCRUM_BADGE}
+            alt={t("home.scrumBadgeAlt", { defaultValue: "Scrum Badge" })}
+            sx={{
+              width: { xs: 50, md: 70 },
+              height: { xs: 50, md: 70 },
+              boxShadow: 6,
+              border: `2px solid ${theme.colors.avatarBorder}`,
+              bgcolor: theme.colors.avatarBackground,
+              position: "absolute",
+
+              top: isRtl ? { xs: 10, md: 20 } : { xs: 20, md: 10 },
+              right: isRtl ? { xs: 10, md: 20 } : { xs: 0, md: 0 },
+              left: isRtl ? { xs: 0, md: 0 } : { xs: 20, md: 10 },
+              zIndex: 1,
+            }}
+          />
+          <Avatar
             src={AVATAR_URL}
             alt={t("home.avatarAlt", { defaultValue: "Avatar" })}
             sx={{
@@ -121,22 +146,52 @@ export default function Home() {
                 sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1.5 }}
               >
                 <Tooltip title="React">
-                  <SiReact size={28} color={theme.colors.react} />
+                  <SiReact size={28} color={appTheme.dark.colors.react} />
+                </Tooltip>
+                <Tooltip title="Angular">
+                  <SiAngular size={28} color={appTheme.dark.colors.angular} />
                 </Tooltip>
                 <Tooltip title="Node.js">
-                  <SiNodedotjs size={28} color={theme.colors.node} />
+                  <SiNodedotjs size={28} color={appTheme.dark.colors.node} />
                 </Tooltip>
                 <Tooltip title=".NET">
-                  <SiDotnet size={28} color={theme.colors.dotnet} />
+                  <SiDotnet size={28} color={appTheme.dark.colors.dotnet} />
+                </Tooltip>
+                <Tooltip title="Spring">
+                  <SiSpring size={28} color={appTheme.dark.colors.spring} />
                 </Tooltip>
                 <Tooltip title="MongoDB">
-                  <SiMongodb size={28} color={theme.colors.mongo} />
+                  <SiMongodb size={28} color={appTheme.dark.colors.mongo} />
                 </Tooltip>
-                <Tooltip title="Docker">
+                <Tooltip title="PostgreSQL">
+                  <SiPostgresql
+                    size={28}
+                    color={appTheme.dark.colors.postgresql}
+                  />
+                </Tooltip>
+                {/* <Tooltip title="Docker">
                   <SiDocker size={28} color={theme.colors.docker} />
-                </Tooltip>
+                </Tooltip> */}
                 <Tooltip title="JavaScript">
-                  <SiJavascript size={26} color={theme.colors.js} />
+                  <SiJavascript
+                    size={26}
+                    color={appTheme.dark.colors.javascript}
+                  />
+                </Tooltip>
+                <Tooltip title="TypeScript">
+                  <SiTypescript
+                    size={26}
+                    color={appTheme.dark.colors.typescript}
+                  />
+                </Tooltip>
+                <Tooltip title="C#">
+                  <TbBrandCSharp
+                    size={26}
+                    color={appTheme.dark.colors.csharp}
+                  />
+                </Tooltip>
+                <Tooltip title="Java">
+                  <FaJava size={26} color={appTheme.dark.colors.java} />
                 </Tooltip>
               </Box>
             </Box>
