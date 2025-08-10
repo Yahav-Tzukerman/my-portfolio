@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 import appTheme from "../styles/theme";
 import { useTranslation } from "react-i18next";
 import AppButton from "./common/AppButton";
-import {  
+import {
   FaExternalLinkAlt,
   FaGithub,
   FaWindows,
@@ -287,36 +287,37 @@ export default function ProjectCard({ project, theme, index }) {
                     key={idx}
                     sx={{
                       bgcolor: theme.colors.innerCardBackground,
-                      p: 1,
+                      p: 1.5,
                       borderRadius: 2,
                       boxShadow: 1,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
                       mb: 1,
-                      flexWrap: "wrap",
-                      gap: 1,
                     }}
                   >
                     <Typography
                       variant="body2"
-                      sx={{ fontWeight: 600, color: theme.colors.textLight }}
+                      sx={{
+                        fontWeight: 600,
+                        color: theme.colors.textLight,
+                        mb: 0.5,
+                      }}
                     >
                       {account.role}
                     </Typography>
+
                     <Box
                       sx={{
                         display: "flex",
                         alignItems: "center",
                         gap: 1,
                         color: theme.colors.textLight,
+                        mb: 0.5,
                       }}
                     >
                       <Typography variant="body2">
-                        {t("projects.username")}:
-                        <Box sx={{ direction: "ltr" }}>
-                          <b>{account.username}</b>
-                        </Box>
+                        {t("projects.username")}:{" "}
+                        <span style={{ direction: "ltr", fontWeight: 600 }}>
+                          {account.username}
+                        </span>
                       </Typography>
                       <IconButton
                         size="small"
@@ -326,6 +327,7 @@ export default function ProjectCard({ project, theme, index }) {
                         <FaRegCopy size={14} />
                       </IconButton>
                     </Box>
+
                     <Box
                       sx={{
                         display: "flex",
@@ -336,9 +338,9 @@ export default function ProjectCard({ project, theme, index }) {
                     >
                       <Typography variant="body2">
                         {t("projects.password")}:{" "}
-                        <Box sx={{ direction: "ltr" }}>
-                          <b>{account.password}</b>
-                        </Box>
+                        <span style={{ direction: "ltr", fontWeight: 600 }}>
+                          {account.password}
+                        </span>
                       </Typography>
                       <IconButton
                         size="small"

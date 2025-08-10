@@ -13,7 +13,7 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AppThemeToggle from "./AppThemeToggle";
 import appTheme from "../../styles/theme";
@@ -29,6 +29,9 @@ const AppNavbar = ({ handleLogout }) => {
   const isMobile = useMediaQuery(themeMui.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const { i18n } = useTranslation();
+  const isRtl = app.lang === "he";
+  const location = useLocation();
+  const selectedRoute = location.pathname;
 
   return (
     <AppBar
@@ -79,13 +82,13 @@ const AppNavbar = ({ handleLogout }) => {
               edge="start"
               color="inherit"
               aria-label="menu"
-              onClick={() => setDrawerOpen(true)}
+              onClick={() => setDrawerOpen("true")}
               sx={{ ml: 1 }}
             >
               <MenuIcon />
             </IconButton>
             <Drawer
-              anchor="left"
+              anchor={isRtl ? "right" : "left"}
               open={drawerOpen}
               onClose={() => setDrawerOpen(false)}
               PaperProps={{
@@ -113,7 +116,16 @@ const AppNavbar = ({ handleLogout }) => {
                     to="/"
                     onClick={() => setDrawerOpen(false)}
                   >
-                    <ListItemText primary={i18n.t("nav.home")} />
+                    <ListItemText
+                      primary={i18n.t("nav.home")}
+                      sx={{
+                        color:
+                          selectedRoute === "/"
+                            ? theme.colors.primary
+                            : theme.colors.textLight,
+                        textAlign: isRtl ? "right" : "left",
+                      }}
+                    />
                   </ListItem>
 
                   <ListItem
@@ -122,7 +134,16 @@ const AppNavbar = ({ handleLogout }) => {
                     to="/resume"
                     onClick={() => setDrawerOpen(false)}
                   >
-                    <ListItemText primary={i18n.t("nav.resume")} />
+                    <ListItemText
+                      primary={i18n.t("nav.resume")}
+                      sx={{
+                        color:
+                          selectedRoute === "/resume"
+                            ? theme.colors.primary
+                            : theme.colors.textLight,
+                        textAlign: isRtl ? "right" : "left",
+                      }}
+                    />
                   </ListItem>
 
                   <ListItem
@@ -131,7 +152,16 @@ const AppNavbar = ({ handleLogout }) => {
                     to="/projects"
                     onClick={() => setDrawerOpen(false)}
                   >
-                    <ListItemText primary={i18n.t("nav.projects")} />
+                    <ListItemText
+                      primary={i18n.t("nav.projects")}
+                      sx={{
+                        color:
+                          selectedRoute === "/projects"
+                            ? theme.colors.primary
+                            : theme.colors.textLight,
+                        textAlign: isRtl ? "right" : "left",
+                      }}
+                    />
                   </ListItem>
 
                   <ListItem
@@ -140,7 +170,16 @@ const AppNavbar = ({ handleLogout }) => {
                     to="/contact"
                     onClick={() => setDrawerOpen(false)}
                   >
-                    <ListItemText primary={i18n.t("nav.contact")} />
+                    <ListItemText
+                      primary={i18n.t("nav.contact")}
+                      sx={{
+                        color:
+                          selectedRoute === "/contact"
+                            ? theme.colors.primary
+                            : theme.colors.textLight,
+                        textAlign: isRtl ? "right" : "left",
+                      }}
+                    />
                   </ListItem>
                 </List>
               </Box>
@@ -153,7 +192,10 @@ const AppNavbar = ({ handleLogout }) => {
                 component={Link}
                 to="/"
                 sx={{
-                  color: theme.colors.textLight,
+                  color:
+                    selectedRoute === "/"
+                      ? theme.colors.primary
+                      : theme.colors.textLight,
                   textTransform: "none",
                 }}
               >
@@ -164,7 +206,10 @@ const AppNavbar = ({ handleLogout }) => {
                 component={Link}
                 to="/resume"
                 sx={{
-                  color: theme.colors.textLight,
+                  color:
+                    selectedRoute === "/resume"
+                      ? theme.colors.primary
+                      : theme.colors.textLight,
                   textTransform: "none",
                 }}
               >
@@ -176,7 +221,10 @@ const AppNavbar = ({ handleLogout }) => {
                   component={Link}
                   to="/projects"
                   sx={{
-                    color: theme.colors.textLight,
+                    color:
+                      selectedRoute === "/projects"
+                        ? theme.colors.primary
+                        : theme.colors.textLight,
                     textTransform: "none",
                   }}
                 >
@@ -187,7 +235,10 @@ const AppNavbar = ({ handleLogout }) => {
                   component={Link}
                   to="/contact"
                   sx={{
-                    color: theme.colors.textLight,
+                    color:
+                      selectedRoute === "/contact"
+                        ? theme.colors.primary
+                        : theme.colors.textLight,
                     textTransform: "none",
                   }}
                 >
@@ -199,9 +250,6 @@ const AppNavbar = ({ handleLogout }) => {
         )}
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <AppThemeToggle />
-        </Box>
-        <Box sx={{ display: "flex", alignItems: "center", m: "0 1rem" }}>
-          <LanguageSwitcher />
         </Box>
       </Toolbar>
     </AppBar>

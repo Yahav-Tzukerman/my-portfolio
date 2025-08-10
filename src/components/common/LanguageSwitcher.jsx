@@ -1,6 +1,14 @@
+// src/components/common/LanguageSwitcher.jsx
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Select, MenuItem, Box, InputLabel, FormControl } from "@mui/material";
+import {
+  Select,
+  MenuItem,
+  Box,
+  FormControl,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
@@ -26,85 +34,104 @@ const LanguageSwitcher = () => {
     <Box
       sx={{
         ml: "auto",
-        position: "relative",
         display: "flex",
         alignItems: "center",
       }}
     >
       <FormControl
-        sx={{
-          minWidth: 92,
-          bgcolor: theme.colors.cardBackground,
-          borderRadius: "6px",
-          boxShadow: theme.colors.shadow,
-        }}
         size="small"
+        sx={{
+          minWidth: 120,
+          borderRadius: 999,
+          overflow: "hidden", // ✅ מונע זליגה של הרקע
+          bgcolor: theme.colors.cardBackground, // ✅ רקע אחיד
+          boxShadow: theme.colors.shadow,
+          border: `1px solid ${theme.colors.inputBorder}`,
+        }}
       >
-        <InputLabel
-          id="language-select-label"
-          sx={{
-            color: theme.colors.textLight,
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <FontAwesomeIcon icon={faLanguage} style={{ marginRight: 8 }} />
-        </InputLabel>
         <Select
-          labelId="language-select-label"
           value={lang}
           onChange={handleChange}
-          label="Language"
+          aria-label="Language Switcher"
+          displayEmpty
+          MenuProps={{
+            PaperProps: {
+              sx: {
+                mt: 0.5,
+                bgcolor: theme.colors.cardBackground,
+                color: theme.colors.textLight,
+                border: `1px solid ${theme.colors.inputBorder}`,
+                boxShadow: theme.colors.shadow,
+              },
+            },
+            anchorOrigin: { vertical: "bottom", horizontal: "right" },
+            transformOrigin: { vertical: "top", horizontal: "right" },
+          }}
           sx={{
-            color: theme.colors.textLight,
+            // צבעים ואחידות
             bgcolor: theme.colors.cardBackground,
+            color: theme.colors.textLight,
             "& .MuiSelect-icon": {
               color: theme.colors.textMuted,
             },
-            "& fieldset": {
-              borderColor: theme.colors.inputBorder,
+            "& fieldset": { border: "none" }, // בלי מסגרת כפולה
+            // טיפוגרפיה ופיל
+            px: 1.5,
+            py: 0.5,
+            borderRadius: 999,
+            // תוכן פנימי מסודר עם אייקון
+            "& .MuiSelect-select": {
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              pr: 3, // מרווח לאייקון החץ
             },
           }}
+          renderValue={(value) => (
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <FontAwesomeIcon icon={faLanguage} style={{ opacity: 0.9 }} />
+              <span style={{ fontWeight: 600 }}>
+                {value === "he" ? "עברית" : "English"}
+              </span>
+            </Box>
+          )}
         >
           <MenuItem
             value="en"
             sx={{
-              "& .MuiListItem-root": {
-                bgcolor: theme.colors.cardBackground,
-              },
               color: theme.colors.textLight,
-              bgcolor: theme.colors.cardBackground,
-
+              bgcolor: "transparent",
               "&.Mui-selected": {
                 bgcolor: theme.colors.innerCardBackground,
-                "&:hover": {
-                  bgcolor: theme.colors.hover,
-                },
               },
               "&:hover": {
-                bgcolor: theme.colors.hover,
+                bgcolor: theme.colors.innerCardBackground,
               },
             }}
           >
-            English
+            <ListItemIcon sx={{ minWidth: 28, color: theme.colors.textMuted }}>
+              <FontAwesomeIcon icon={faLanguage} />
+            </ListItemIcon>
+            <ListItemText primary="English" />
           </MenuItem>
+
           <MenuItem
             value="he"
             sx={{
               color: theme.colors.textLight,
-              bgcolor: theme.colors.cardBackground,
+              bgcolor: "transparent",
               "&.Mui-selected": {
                 bgcolor: theme.colors.innerCardBackground,
-                "&:hover": {
-                  bgcolor: theme.colors.hover,
-                },
               },
               "&:hover": {
-                bgcolor: theme.colors.hover,
+                bgcolor: theme.colors.innerCardBackground,
               },
             }}
           >
-            עברית
+            <ListItemIcon sx={{ minWidth: 28, color: theme.colors.textMuted }}>
+              <FontAwesomeIcon icon={faLanguage} />
+            </ListItemIcon>
+            <ListItemText primary="עברית" />
           </MenuItem>
         </Select>
       </FormControl>

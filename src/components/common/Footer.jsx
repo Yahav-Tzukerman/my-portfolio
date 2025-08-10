@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import appTheme from "../../styles/theme";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const CONTACT_EMAIL = "tzuki.yahav@gmail.com";
 
@@ -67,6 +68,9 @@ export default function Footer() {
               <FaEnvelope />
             </IconButton>
           </Tooltip>
+          <Box sx={{ display: "flex", alignItems: "center", m: "0 1rem" }}>
+            <LanguageSwitcher />
+          </Box>
         </Stack>
       </Stack>
     </Box>

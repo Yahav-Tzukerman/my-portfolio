@@ -104,14 +104,6 @@ export default function Contact() {
               onChange={handleNameChange}
               error={formErrors.includes("name")}
               errorMessage={t("contact.nameError")}
-              instructions={
-                <Typography
-                  variant="caption"
-                  color={theme.colors.secondaryText}
-                >
-                  {t("contact.nameInstructions")}
-                </Typography>
-              }
             />
             <AppInput
               type="email"
@@ -120,11 +112,6 @@ export default function Contact() {
               onChange={handleEmailChange}
               error={formErrors.includes("email")}
               errorMessage={t("contact.emailError")}
-              instructions={
-                <Typography variant="caption" color={theme.colors.textMuted}>
-                  {t("contact.emailInstructions")}
-                </Typography>
-              }
             />
             <AppTextArea
               placeholder={t("contact.message")}
@@ -132,14 +119,6 @@ export default function Contact() {
               onChange={handleMessageChange}
               error={formErrors.includes("message")}
               errorMessage={t("contact.messageError")}
-              instructions={
-                <Typography
-                  variant="caption"
-                  color={theme.colors.secondaryText}
-                >
-                  {t("contact.messageInstructions")}
-                </Typography>
-              }
             />
             <Divider sx={{ my: 2 }} />
             <AppButton

@@ -7,6 +7,8 @@ import {
   Avatar,
   Paper,
   Tooltip,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -35,6 +37,8 @@ const SCRUM_BADGE = "PSMI.png";
 export default function Home() {
   const app = useSelector((state) => state.app);
   const theme = app.darkMode ? appTheme.dark : appTheme.light;
+  const themeMui = useTheme();
+  const isMobile = useMediaQuery(themeMui.breakpoints.down("md"));
   const { t } = useTranslation();
   const navigate = useNavigate();
   const isRtl = app.lang === "he";
@@ -143,7 +147,11 @@ export default function Home() {
               }}
             >
               <Box
-                sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1.5 }}
+                sx={
+                  isMobile
+                    ? { display: "flex", flexWrap: "wrap", gap: 1, mb: 1.5 }
+                    : { display: "flex", alignItems: "center", gap: 2, mb: 1.5 }
+                }
               >
                 <Tooltip title="React">
                   <SiReact size={28} color={appTheme.dark.colors.react} />
